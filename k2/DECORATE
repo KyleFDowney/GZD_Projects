@@ -1,0 +1,120 @@
+ACTOR PlasBall
+{
+  Radius 13
+  Height 8
+  Speed 42
+  Damage 0
+  Projectile
+  Friction 0.8
+  +RANDOMIZE
+  RenderStyle Add
+  Alpha 0.90
+  DeathSound "weapons/plasmax"
+  Obituary "$OB_MPPLASMARIFLE" // "%o was melted by %k's plasma gun."
+  States
+  {
+  Spawn:
+    PLSS AB 2 A_ChangeVelocity(0,(random(-1,1)),(random(-1,1)))
+    loop
+  Death:
+	PLSE B 1 A_Explode(1,60)
+    PLSE ABCDE 1
+	PLSE B 1 A_Explode(1,60)
+	PLSE ABCDE 1
+	PLSE B 1 A_Explode(1,60)
+	PLSE ABCDE 1
+	PLSE B 1 A_Explode(1,60)
+	MISL B 0 A_PlaySound("weapons/rocklx",0,0.5)
+	MISL B 2 A_Explode(500,20,XF_THRUSTZ,1,20)
+
+
+    Stop
+  }
+}
+
+ACTOR SuperPlasma : Weapon replaces Chainsaw
+{
+Inventory.PickupMessage "You got the Super Plasma Rifle!."
++Weapon.NOAUTOAIM
+Weapon.SelectionOrder 110
+Weapon.AmmoType "Cell"
+Weapon.AmmoUse 2
+Weapon.AmmoGive 100
+Weapon.SlotNumber 6
+AttackSound "weapons/plasmaf"
+States
+{
+Spawn:
+    PLAS A -1
+    Stop
+Ready:
+    PLSG A 1 A_WeaponReady
+    Loop
+Select:
+    PLSG A 1 A_Raise
+    Loop
+Deselect:
+    PLSG A 1 A_Lower
+    Loop
+Fire:
+	PLSG A 0 A_PlaySound("weapons/plasmaf")
+	PLSG A 0 A_FireCustomMissile("PlasBall",(random(-6,6)),1)
+	PLSG A 0 A_FireCustomMissile("PlasBall",(random(-6,6)),1)
+	PLSG A 0 A_FireCustomMissile("PlasBall",(random(-6,6)),1)
+	PLSG A 0 A_FireCustomMissile("PlasBall",(random(-6,6)),1)
+	PLSG A 2 A_FireCustomMissile("PlasBall",(random(-6,6)),1)
+	PLSG B 12 A_CheckReload
+    PLSG B 20 A_ReFire
+    Goto Ready
+Flash:
+    PLSF A 4 Bright A_Light1
+    Goto LightDone
+    PLSF B 4 Bright A_Light1
+    Goto LightDone
+	}
+}
+
+ACTOR Piistol : Weapon 
+{
+  Weapon.SelectionOrder 1901
+  Weapon.AmmoUse 1
+  Weapon.AmmoUse2 1
+  Weapon.AmmoGive 20
+  Weapon.AmmoType "Clip"
+  Weapon.AmmoType2 "Clip"
+  Obituary "$OB_MPPISTOL"
+  +WEAPON.WIMPY_WEAPON
+  Inventory.Pickupmessage "$PICKUP_PISTOL_DROPPED"
+  Tag "$TAG_PISTOL"
+  States
+  {
+  Ready:
+    PISG A 1 A_WeaponReady
+    Loop
+  Deselect:
+    PISG A 1 A_Lower
+    Loop
+  Select:
+    PISG A 1 A_Raise
+    Loop
+  Fire:
+    PISG B 4 A_FirePistol
+    PISG C 2
+    Goto Ready
+  AltFire:
+    PISG B 2 A_FirePistol
+	PISG B 2 A_FirePistol
+	PISG B 3 A_FirePistol
+    PISG C 5
+    Goto Ready
+  Flash:
+    PISF A 3 Bright A_Light1
+    Goto LightDone
+    PISF A 3 Bright A_Light1
+    Goto LightDone
+  Spawn:
+    PIST A -1
+    Stop
+  }
+}
+
