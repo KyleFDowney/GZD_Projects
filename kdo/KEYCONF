@@ -1,0 +1,7 @@
+clearplayerclasses
+addplayerclass "Doomer"
+
+weaponsection MyNewWeapons
+   setslot 1 KFist
+   addslotdefault 1 Chainsaw
+   setslot 2 KPistol
