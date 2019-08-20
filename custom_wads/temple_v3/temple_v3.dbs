@@ -1,5 +1,5 @@
 type = "Doom Builder Map Settings Configuration";
-gameconfig = "Doom2.cfg";
+gameconfig = "GZDoom_DoomDoom.cfg";
 strictpatches = 0;
 
 maps
@@ -19,9 +19,7 @@ maps
 				option2 = 0;
 				notfortesting = 0;
 			}
-			
 		}
-		
 		
 		grid
 		{
@@ -31,10 +29,28 @@ maps
 			backoffsety = 0;
 			backscalex = 100;
 			backscaley = 100;
-			gridsize = 32;
+			gridsize = 4f;
 		}
-		
+		defaultfloortexture = "DEM1_6";
+		defaultceiltexture = "F_SKY1";
+		defaulttoptexture = "MARBGRAY";
+		defaultwalltexture = "MARBGRAY";
+		defaultbottomtexture = "MARBGRAY";
+		custombrightness = 196;
+		customfloorheight = 0;
+		customceilheight = 128;
+		overridefloortexture = false;
+		overrideceiltexture = false;
+		overridetoptexture = false;
+		overridemiddletexture = false;
+		overridebottomtexture = false;
+		overridefloorheight = false;
+		overrideceilheight = false;
+		overridebrightness = false;
+		uselongtexturenames = false;
+		useresourcesinreadonlymode = false;
+		viewpositionx = 90.00847f;
+		viewpositiony = 591.6801f;
+		viewscale = 1.620979f;
 	}
-	
 }
-
