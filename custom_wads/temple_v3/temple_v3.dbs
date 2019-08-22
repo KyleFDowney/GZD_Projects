@@ -29,7 +29,7 @@ maps
 			backoffsety = 0;
 			backscalex = 100;
 			backscaley = 100;
-			gridsize = 16f;
+			gridsize = 1f;
 		}
 		defaultfloortexture = "DEM1_6";
 		defaultceiltexture = "F_SKY1";
@@ -49,8 +49,8 @@ maps
 		overridebrightness = false;
 		uselongtexturenames = false;
 		useresourcesinreadonlymode = false;
-		viewpositionx = -280.9541f;
-		viewpositiony = 265.399f;
-		viewscale = 3.561286f;
+		viewpositionx = -248.5975f;
+		viewpositiony = 679.8849f;
+		viewscale = 4.629667f;
 	}
 }
