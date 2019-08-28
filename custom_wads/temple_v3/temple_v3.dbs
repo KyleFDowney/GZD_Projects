@@ -49,8 +49,8 @@ maps
 		overridebrightness = false;
 		uselongtexturenames = false;
 		useresourcesinreadonlymode = false;
-		viewpositionx = -590.6505f;
-		viewpositiony = 1318.222f;
-		viewscale = 0.737812f;
+		viewpositionx = -299.1399f;
+		viewpositiony = 1125.159f;
+		viewscale = 4.62966f;
 	}
 }
